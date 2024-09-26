@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.example.rsic'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.rsic"
@@ -30,6 +30,8 @@ android {
 
 dependencies {
 
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.22")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22")
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
