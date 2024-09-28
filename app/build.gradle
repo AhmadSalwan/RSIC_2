@@ -4,6 +4,9 @@ plugins {
 
 android {
     namespace 'com.example.rsic'
+    buildFeatures {
+        viewBinding true
+    }
     compileSdk 34
 
     defaultConfig {

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D91656"
+    tools:context=".activities.Register_Image">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="600px"
+        android:layout_height="300px"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="60dp"
+        android:fontFamily="@font/righteous"
+        android:text="JobFit"
+        android:textColor="@color/white"
+        android:textSize="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/main_image"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Upload Your Photo"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/register_image"
+        android:layout_width="199dp"
+        android:layout_height="202dp"
+        android:layout_marginTop="88dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/rouded_corner_bpox"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:shapeAppearanceOverlay="@style/roundImageButton" />
+
+    <Button
+        android:id="@+id/continue_regist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="78dp"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="#EE66A6"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Continue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

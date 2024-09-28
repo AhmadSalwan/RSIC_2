@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D91656"
-    tools:context=".Register_Page">
+    tools:context=".activities.Register_Page">
 
     <TextView
         android:id="@+id/textView"
@@ -68,6 +68,7 @@
             android:fontFamily="@font/poppins_regular"
             android:hint="Enter your name "
             android:paddingHorizontal="10dp"
+            android:textColor="@color/black"
             android:textColorHint="#808080"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -102,6 +103,7 @@
             android:fontFamily="@font/poppins_regular"
             android:hint="Enter your email "
             android:paddingHorizontal="10dp"
+            android:textColor="@color/black"
             android:textColorHint="#808080"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -132,6 +134,7 @@
             android:layout_height="35dp"
             android:layout_gravity="top"
             android:layout_marginTop="4dp"
+            android:textColor="@color/black"
             android:background="@drawable/register_textbox"
             android:fontFamily="@font/poppins_regular"
             android:hint="Enter your phone number"
