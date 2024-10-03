@@ -1,4 +1,4 @@
-# AI-Based Recruitment System for CPNS & PPPK
+# AI-Based Recruitment System
 
 ### Overview
 This project is aimed at improving the recruitment process for Calon Pegawai Negeri Sipil (CPNS) and Pegawai Pemerintah dengan Perjanjian Kerja (PPPK) in government institutions. By leveraging Artificial Intelligence (AI), the system automates the selection process, ensuring faster, more accurate, and more efficient candidate screening and matching. The system integrates with government recruitment platforms like SSCASN, handles large data volumes, and prioritizes security and scalability.
