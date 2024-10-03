@@ -1,0 +1,10 @@
+<!-- res/drawable/card_corner_shape.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners
+        android:topLeftRadius="16dp"
+        android:bottomRightRadius="16dp"
+        android:topRightRadius="0dp"
+        android:bottomLeftRadius="0dp" />
+
+    <solid android:color="#FFEB55" /> <!-- Atur warna latar belakang sesuai kebutuhan -->
+</shape>

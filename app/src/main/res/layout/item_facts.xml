@@ -1,0 +1,38 @@
+<!-- item_recyclerview.xml -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="180dp"
+    android:layout_height="160dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    android:background="@drawable/card_corner_shape"> <!-- Terapkan bentuk sudut -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@drawable/card_corner_shape">
+
+        <!-- Image Thumbnail -->
+        <ImageView
+            android:id="@+id/item_images_facts"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            tools:src="@mipmap/ic_launcher_round" />
+        <!-- Description Text -->
+        <TextView
+            android:id="@+id/item_description_facts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc"
+            android:textColor="#555"
+            android:textSize="15sp"
+            android:layout_marginTop="4dp"
+            android:justificationMode="inter_word"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

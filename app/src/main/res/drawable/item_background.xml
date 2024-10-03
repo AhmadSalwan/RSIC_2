@@ -1,0 +1,5 @@
+<!-- res/drawable/item_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#D91656" /> <!-- Warna merah maroon pink -->
+    <corners android:radius="12dp" /> <!-- Sudut melengkung -->
+</shape>

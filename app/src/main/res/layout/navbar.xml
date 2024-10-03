@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="18dp"
+    android:background="@color/white"
+    android:layout_height="60dp"
+    android:layout_gravity="bottom"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/item_beranda"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/IV_HomeNav"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/homeNav"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_compass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/IV_CompassNav"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/compassnav"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_Company"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/IV_Company"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/buildingnav"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/IV_Profile"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/profilenav"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+</LinearLayout>
