@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JobFit"
         tools:targetApi="31">
+
         <activity
             android:name=".activity_register_resume"
             android:exported="false"
@@ -26,16 +27,16 @@
             android:theme="@style/Theme.JobFit" />
         <activity
             android:name=".intro_activity"
-            android:exported="false"
-            android:theme="@style/Theme.JobFit" />
+            android:exported="true"
+            android:theme="@style/Theme.JobFit">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
