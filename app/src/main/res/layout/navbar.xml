@@ -17,7 +17,7 @@
             android:id="@+id/IV_HomeNav"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/homeNav"
+            android:src="@drawable/homenav"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
 
