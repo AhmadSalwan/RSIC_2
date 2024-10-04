@@ -32,7 +32,7 @@ public class activity_register_resume extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Intent untuk berpindah ke activity Homepage
-                Intent intent = new Intent(activity_register_resume.this, activity_register_page.class);
+                Intent intent = new Intent(activity_register_resume.this, MainActivity.class);
                 startActivity(intent); // Mulai activity Homepage
             }
         });
