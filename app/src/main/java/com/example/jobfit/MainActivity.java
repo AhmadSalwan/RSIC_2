@@ -49,6 +49,21 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(new CompanyFragment());
             }
         });
+        RelativeLayout profileIcon = findViewById(R.id.item_profile);
+        profileIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new ProfileFragment());
+            }
+        });
+
+        RelativeLayout compassIcon = findViewById(R.id.item_compass);
+        compassIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new CompassFragment());
+            }
+        });
     }
     private void loadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
