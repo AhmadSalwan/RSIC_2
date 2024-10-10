@@ -1,4 +1,4 @@
-package com.example.jobfit.adapter;
+package com.example.jobfit;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,10 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.jobfit.model.Item;
-import com.example.jobfit.R;
-
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {

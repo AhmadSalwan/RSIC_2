@@ -1,4 +1,4 @@
-package com.example.jobfit.activity;
+package com.example.jobfit;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,11 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.example.jobfit.fragment.CompanyFragment;
-import com.example.jobfit.fragment.CompassFragment;
-import com.example.jobfit.fragment.HomeFragment;
-import com.example.jobfit.fragment.ProfileFragment;
-import com.example.jobfit.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
@@ -45,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(new HomeFragment());
             }
         });
-        RelativeLayout buildingIcon = findViewById(R.id.item_Company1);
+        RelativeLayout buildingIcon = findViewById(R.id.item_Company);
         buildingIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D91656"
-    tools:context=".activity.activity_register_image">
+    tools:context=".activity_register_image">
 
     <TextView
         android:id="@+id/textView"
