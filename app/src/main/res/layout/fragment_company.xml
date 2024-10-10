@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.CompanyFragment"
+    tools:context=".CompanyFragment"
     android:orientation="vertical"
     android:background="#F3F3F3">
 
@@ -22,6 +22,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:padding="20dp">
                 <ImageView
+                    android:id="@+id/head_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/user_head"
@@ -101,7 +102,7 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_companyfacts"
+                android:id="@+id/rv_menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

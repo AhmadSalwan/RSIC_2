@@ -24,18 +24,14 @@
             tools:src="@mipmap/ic_launcher_round" />
         <!-- Description Text -->
         <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:id="@+id/item_description_facts"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#000" />
-
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="#777" />
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc"
+            android:textColor="#555"
+            android:textSize="15sp"
+            android:layout_marginTop="4dp"
+            android:justificationMode="inter_word"/>
 
     </LinearLayout>
 
