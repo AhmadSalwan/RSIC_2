@@ -14,19 +14,19 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".activity_register_resume"
+            android:name=".activity.activity_register_resume"
             android:exported="false"
             android:theme="@style/Theme.JobFit" />
         <activity
-            android:name=".activity_register_image"
+            android:name=".activity.activity_register_image"
             android:exported="false"
             android:theme="@style/Theme.JobFit" />
         <activity
-            android:name=".activity_register_page"
+            android:name=".activity.activity_register_page"
             android:exported="false"
             android:theme="@style/Theme.JobFit" />
         <activity
-            android:name=".intro_activity"
+            android:name=".activity.intro_activity"
             android:exported="true"
             android:theme="@style/Theme.JobFit">
             <intent-filter>
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
         </activity>
     </application>

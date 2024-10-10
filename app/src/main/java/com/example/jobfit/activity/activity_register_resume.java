@@ -1,21 +1,14 @@
-package com.example.jobfit;
+package com.example.jobfit.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.example.jobfit.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.jobfit.databinding.ActivityRegisterResumeBinding;
 
 public class activity_register_resume extends AppCompatActivity {
 

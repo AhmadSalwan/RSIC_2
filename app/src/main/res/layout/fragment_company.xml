@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".CompanyFragment"
+    tools:context=".fragment.CompanyFragment"
     android:orientation="vertical"
     android:background="#F3F3F3">
 
@@ -101,7 +101,7 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_menu"
+                android:id="@+id/rv_companyfacts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

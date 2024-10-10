@@ -1,4 +1,4 @@
-package com.example.jobfit;
+package com.example.jobfit.model;
 
 public class Item {
     private String title;
