@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(new HomeFragment());
             }
         });
-        RelativeLayout buildingIcon = findViewById(R.id.item_Company);
+        RelativeLayout buildingIcon = findViewById(R.id.item_Company1);
         buildingIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
