@@ -1,6 +1,4 @@
-package com.example.jobfit;
-
-import static java.security.AccessController.getContext;
+package com.example.jobfit.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,13 +11,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.jobfit.model.Company;
+import com.example.jobfit.adapter.CompanyAdapter;
+import com.example.jobfit.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyFragment extends Fragment {
 
-    private RecyclerView rvCompany;
-    private CompanyAdapter companyAdapter;
+    private RecyclerView rvCompany, rvCompanyFacts;
+    private CompanyAdapter companyFactsAdapter;
     private List<Company> companyList;
 
     @Nullable
@@ -28,8 +30,9 @@ public class CompanyFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_company, container, false);
 
         // Inisialisasi RecyclerView
-        rvCompany = view.findViewById(R.id.rv_company);
-        rvCompany.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvCompanyFacts = view.findViewById(R.id.rv_companyfacts);
+        rvCompanyFacts.setHasFixedSize(true);
+        rvCompanyFacts.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Inisialisasi data
         companyList = new ArrayList<>();
@@ -38,8 +41,10 @@ public class CompanyFragment extends Fragment {
         companyList.add(new Company("Company 3", "Description for Company 3"));
 
         // Set Adapter
-        companyAdapter = new CompanyAdapter(companyList);
-        rvCompany.setAdapter(companyAdapter);
+        companyFactsAdapter = new CompanyAdapter(companyList);
+        rvCompanyFacts.setAdapter(companyFactsAdapter);
+
+
 
         return view;
     }

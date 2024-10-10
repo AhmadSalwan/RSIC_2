@@ -1,11 +1,11 @@
-package com.example.jobfit;
+package com.example.jobfit.activity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.jobfit.R;
 import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -14,16 +14,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.jobfit.databinding.ActivityRegisterImageBinding;
 
 public class activity_register_image extends AppCompatActivity {
 

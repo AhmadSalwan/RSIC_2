@@ -1,10 +1,13 @@
-package com.example.jobfit;
+package com.example.jobfit.fragment;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.jobfit.R;
+import com.example.jobfit.adapter.SwipeAdapter;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import java.util.ArrayList;
 

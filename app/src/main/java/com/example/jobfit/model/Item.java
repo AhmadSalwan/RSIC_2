@@ -1,10 +1,10 @@
-package com.example.jobfit;
+package com.example.jobfit.model;
 
-public class Company {
+public class Item {
     private String title;
     private String description;
 
-    public Company(String title, String description) {
+    public Item(String title, String description) {
         this.title = title;
         this.description = description;
     }
@@ -17,3 +17,4 @@ public class Company {
         return description;
     }
 }
+

@@ -1,4 +1,4 @@
-package com.example.jobfit;
+package com.example.jobfit.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,7 +11,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.jobfit.fragment.CompanyFragment;
+import com.example.jobfit.fragment.CompassFragment;
+import com.example.jobfit.fragment.HomeFragment;
+import com.example.jobfit.fragment.ProfileFragment;
+import com.example.jobfit.R;
 
 public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
