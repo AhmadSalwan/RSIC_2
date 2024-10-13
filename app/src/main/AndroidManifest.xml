@@ -25,6 +25,10 @@
             android:name=".activity.activity_register_page"
             android:exported="false"
             android:theme="@style/Theme.JobFit" />
+        <activity android:name="com.example.jobfit.activity.Login"
+            android:exported="false"
+            android:theme="@style/Theme.JobFit"/>
+
         <activity
             android:name=".activity.intro_activity"
             android:exported="true"

@@ -21,7 +21,7 @@ public class intro_activity extends AppCompatActivity {
         new Handler(Looper.getMainLooper() ).postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(intro_activity.this, activity_register_page.class));
+                startActivity(new Intent(intro_activity.this, Login.class));
                 finish();
             }
         },1000);
