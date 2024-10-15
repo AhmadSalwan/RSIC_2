@@ -33,8 +33,8 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyV
     public void onBindViewHolder(@NonNull CompanyViewHolder holder, int position) {
         // Set data to item layout
         Company company = companyList.get(position);
-        holder.titleTextView.setText(company.getTitle());
-        holder.descriptionTextView.setText(company.getDescription());
+//        holder.titleTextView.setText(company.getTitle());
+//        holder.descriptionTextView.setText(company.getDescription());
     }
 
     @Override

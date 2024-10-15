@@ -55,6 +55,7 @@ public class CompassFragment extends Fragment {
         if (email != null) {
             // Mendapatkan gambar profil
             Bitmap profilePicture = dbHelper.getUserProfilePicture(email);
+            itemList.add(new Item("Title 2", email));
             if (profilePicture != null) {
                 imageViewUser.setImageBitmap(profilePicture); // Set gambar pada ImageView
             } else {

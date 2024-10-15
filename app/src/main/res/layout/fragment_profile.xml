@@ -8,7 +8,6 @@
     android:background="#D91656"
     tools:context=".fragment.ProfileFragment">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="301dp"
@@ -153,7 +152,6 @@
                 android:id="@+id/genderDropdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Select Your Gender"
                 android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>

@@ -16,10 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.jobfit.EditResumeFragment;
 import com.example.jobfit.R;
 import com.example.jobfit.db.DBHelper;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class ProfileFragment extends Fragment {
     private DBHelper dbHelper; // DBHelper untuk akses database
@@ -49,6 +47,24 @@ public class ProfileFragment extends Fragment {
         if (email != null) {
             // Ambil data pengguna dari database
             dbHelper.getUserData(email);
+            if (email != null) {
+                // Panggil metode getUserData untuk mengambil data berdasarkan email
+                Cursor userData = dbHelper.getUserData(email);
+
+                // Pastikan data ada di Cursor
+                if (userData != null && userData.moveToFirst()) {
+                    String name = userData.getString(userData.getColumnIndex("username"));
+                    String phone = userData.getString(userData.getColumnIndex("phone_number"));
+                    String gender = userData.getString(userData.getColumnIndex("gender"));
+
+
+                    // Set hint di setiap EditText
+                    editTextName.setHint(name != null ? name : "Enter your name");
+                    editTextEmail.setHint(email != null ? email : "Enter your email");
+                    editTextPhone.setHint(phone != null ? phone : "Enter your phone number");
+                    editGender.setHint(gender != null ? gender : "Enter your gender");
+                }
+            }
         }
         // Find the button by its ID
         Button editButton = view.findViewById(R.id.continue_editbtn);
@@ -80,6 +96,30 @@ public class ProfileFragment extends Fragment {
             String phone = editTextPhone.getText().toString();
             String gender = editGender.getText().toString();
             String newemail = editTextEmail.getText().toString();
+
+            if (name.isEmpty()) {
+                editTextName.setError("Name cannot be empty");
+                editTextName.requestFocus();
+                return;
+            }
+
+            if (phone.isEmpty()) {
+                editTextPhone.setError("Phone number cannot be empty");
+                editTextPhone.requestFocus();
+                return;
+            }
+
+            if (gender.isEmpty()) {
+                editGender.setError("Gender must be selected");
+                editGender.requestFocus();
+                return;
+            }
+
+            if (newemail.isEmpty()) {
+                editTextEmail.setError("Email cannot be empty");
+                editTextEmail.requestFocus();
+                return;
+            }
 
             if (dbHelper.updateUserProfile(email, name, phone, gender,newemail)) {
                 Toast.makeText(getContext(), "Profile updated successfully!", Toast.LENGTH_SHORT).show();

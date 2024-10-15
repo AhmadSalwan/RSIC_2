@@ -13,14 +13,14 @@ public class DBHelper extends SQLiteOpenHelper {
     public  static  final  String DBNAME = "JobFit.db";
 
     public DBHelper(Context context) {
-        super(context,"JobFit.db",null,1);
+        super(context,"JobFit.db",null,2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("CREATE TABLE users ("
-                + "username TEXT PRIMARY KEY, "
-                + "email TEXT UNIQUE, "
+                + "username TEXT , "
+                + "email TEXT PRIMARY KEY, "
                 + "phone_number TEXT, "
                 + "gender TEXT, "
                 + "skills TEXT, "
@@ -60,7 +60,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 cursor.close(); // Pastikan cursor ditutup
             }
         }
-
         return null; // Jika tidak ditemukan atau terjadi kesalahan
     }
     public boolean isUserValid(String email, String username) {

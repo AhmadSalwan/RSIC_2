@@ -1,4 +1,4 @@
-package com.example.jobfit;
+package com.example.jobfit.fragment;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.jobfit.R;
 import com.example.jobfit.db.DBHelper;
 import com.example.jobfit.fragment.ProfileFragment;
 import com.google.android.material.textfield.TextInputEditText;
