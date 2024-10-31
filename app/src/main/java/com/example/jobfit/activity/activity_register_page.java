@@ -2,98 +2,74 @@ package com.example.jobfit.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.example.jobfit.R;
-import com.example.jobfit.activity.activity_register_resume;
-import com.example.jobfit.db.DBHelper;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.jobfit.R;
+import com.example.jobfit.db.DBHelper;
 import com.example.jobfit.databinding.ActivityRegisterPageBinding;
-import com.google.android.material.textfield.TextInputLayout;
-
 
 public class activity_register_page extends AppCompatActivity {
-    DBHelper dbHelper;
+    private ActivityRegisterPageBinding binding;
+    private DBHelper dbHelper;
 
-    Button button;
-    EditText phone,name,email;
-    AutoCompleteTextView gender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_register_page);
-        AutoCompleteTextView genderDropdown = findViewById(R.id.genderDropdown);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.gender_options, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        genderDropdown.setAdapter(adapter);
+        binding = ActivityRegisterPageBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         dbHelper = new DBHelper(this);
 
-        // Inisialisasi komponen input
-        name = findViewById(R.id.nameInputLayout);
-        email = findViewById(R.id.emailInputLayout);
-        phone = findViewById(R.id.phoneEditText);
-        gender = findViewById(R.id.genderDropdown);
+        // Set up gender dropdown
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.gender_options, android.R.layout.simple_spinner_dropdown_item);
+        binding.genderDropdown.setAdapter(adapter);
 
-        // Mengambil isi dari komponen
+        // Button click listener
+        binding.continueRegist.setOnClickListener(v -> {
+            String uName = binding.nameInputLayout.getText().toString().trim();
+            String uEmail = binding.emailInputLayout.getText().toString().trim();
+            String uPhoneNumber = binding.phoneEditText.getText().toString().trim();
+            String selectedGender = binding.genderDropdown.getText().toString().trim();
 
-        button=findViewById(R.id.continue_regist);
-        button.setOnClickListener( v ->{
-            String uName = name.getText().toString();
-            String uEmail = email.getText().toString();
-            String uPhoneNumber = phone.getText().toString();
-            String selectedGender = gender.getText().toString();
-            // Validasi input
-            if (TextUtils.isEmpty(uName)) {
-                name.setError("Name is required");
+            // Input validation
+            if (TextUtils.isEmpty(uName) || uName.length() > 20) {
+                binding.nameInputLayout.setError("Name is required and should not exceed 20 characters");
                 return;
-            } else {
-                name.setError(null); // Hilangkan error jika valid
             }
 
-            if (TextUtils.isEmpty(uEmail)) {
-                email.setError("Email is required");
+            if (TextUtils.isEmpty(uEmail) || !uEmail.endsWith("@gmail.com")) {
+                binding.emailInputLayout.setError("Email is required and must end with @gmail.com");
                 return;
-            } else {
-                email.setError(null);
             }
 
-            if (TextUtils.isEmpty(uPhoneNumber)) {
-                phone.setError("Phone number is required");
+            if (TextUtils.isEmpty(uPhoneNumber) || uPhoneNumber.length() > 14) {
+                binding.phoneEditText.setError("Phone number is required and must not exceed 14 characters");
                 return;
             }
 
             if (TextUtils.isEmpty(selectedGender)) {
-                gender.setError("Please select your gender");
+                binding.genderDropdown.setError("Please select your gender");
                 return;
             }
-            // Periksa apakah email sudah digunakan
+
+            // Check if email already exists
             if (dbHelper.isEmailExists(uEmail)) {
-                email.setError("This email is already registered");
+                binding.emailInputLayout.setError("This email is already registered");
                 Toast.makeText(activity_register_page.this, "Email already used, please use another one.", Toast.LENGTH_SHORT).show();
-                return; // Stop execution jika email sudah ada
+                return;
             }
 
-
-            // Jika semua input valid, lanjut ke activity_register_image
+            // If all inputs are valid, proceed to activity_register_image
             Intent intent = new Intent(activity_register_page.this, activity_register_resume.class);
             intent.putExtra("name", uName);
             intent.putExtra("email", uEmail);
