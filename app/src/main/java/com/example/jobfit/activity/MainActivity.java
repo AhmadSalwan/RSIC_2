@@ -11,8 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.example.jobfit.companies;
-import com.example.jobfit.fragment.CompanyFragment;
+import com.example.jobfit.fragment.companies;
 import com.example.jobfit.fragment.CompassFragment;
 import com.example.jobfit.fragment.HomeFragment;
 import com.example.jobfit.fragment.ProfileFragment;
