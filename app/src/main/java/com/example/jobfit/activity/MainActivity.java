@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.example.jobfit.companies;
 import com.example.jobfit.fragment.CompanyFragment;
 import com.example.jobfit.fragment.CompassFragment;
 import com.example.jobfit.fragment.HomeFragment;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Load the CompanyFragment
-                loadFragment(new CompanyFragment());
+                loadFragment(new companies());
             }
         });
         RelativeLayout profileIcon = findViewById(R.id.item_profile);

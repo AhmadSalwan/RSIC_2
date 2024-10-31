@@ -6,7 +6,7 @@ public class Company {
     private String description;
 
     // Constructor with parameters
-    public Company(String name, String description) {
+    public Company(String name, String description, int logohp) {
         this.name = name;
         this.description = description;
     }
