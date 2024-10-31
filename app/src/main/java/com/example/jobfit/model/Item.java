@@ -3,8 +3,6 @@ package com.example.jobfit.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 public class Item implements Parcelable {
     private String title;
     private String company;
@@ -70,4 +68,3 @@ public class Item implements Parcelable {
         this.description = description;
     }
 }
-
