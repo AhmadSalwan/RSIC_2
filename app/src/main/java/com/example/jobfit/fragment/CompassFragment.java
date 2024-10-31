@@ -7,25 +7,22 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.jobfit.adapter.ItemAdapter;
 import com.example.jobfit.db.DBHelper;
-import com.example.jobfit.model.Item;
-import com.example.jobfit.adapter.MyAdapter;
 import com.example.jobfit.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.jobfit.db.JobItemData;
 
 public class CompassFragment extends Fragment {
     private DBHelper dbHelper;
     private ImageView imageViewUser;
-    private RecyclerView recyclerView;
-    private MyAdapter adapter;
-    private List<Item> itemList;
+    private RecyclerView rv_itemJob;
+    private ItemAdapter itemAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,20 +30,10 @@ public class CompassFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_compass, container, false);
 
         dbHelper = new DBHelper(getContext());
-        // Initialize RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        // Initialize data list
-        itemList = new ArrayList<>();
-        itemList.add(new Item("Title 1", "Description 1"));
-        itemList.add(new Item("Title 2", "Description 2"));
-        itemList.add(new Item("Title 3", "Description 3"));
-        // Add more items...
-
-        // Set adapter
-        adapter = new MyAdapter(itemList);
-        recyclerView.setAdapter(adapter);
+        rv_itemJob = view.findViewById(R.id.rv_itemJobList);
+        rv_itemJob.setHasFixedSize(true);
+        itemAdapter = new ItemAdapter(JobItemData.items, getContext());
+        rv_itemJob.setAdapter(itemAdapter);
 
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         imageViewUser = toolbar.findViewById(R.id.head_image);
@@ -55,7 +42,6 @@ public class CompassFragment extends Fragment {
         if (email != null) {
             // Mendapatkan gambar profil
             Bitmap profilePicture = dbHelper.getUserProfilePicture(email);
-            itemList.add(new Item("Title 2", email));
             if (profilePicture != null) {
                 imageViewUser.setImageBitmap(profilePicture); // Set gambar pada ImageView
             } else {

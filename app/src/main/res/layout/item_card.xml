@@ -2,33 +2,58 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    android:orientation="vertical"
-    android:elevation="4dp">
+    android:background="@drawable/bg_itemlist"
+    android:elevation="4dp"
+    android:radius="16dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@drawable/bg_itemlist"
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/tv_titleitemJD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black" />
+            tools:text="Data Science"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/descriptionTextView"
+            android:id="@+id/tv_companyNameitemJD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Description"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@android:color/darker_gray" />
+            android:layout_below="@id/tv_titleitemJD"
+            tools:text="Apple Corporation"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tv_descSkillItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_companyNameitemJD"
+            tools:text="Apple Inc. is a multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics"
+            android:textColor="#EAEAEA"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
 
+        <Button
+            android:id="@+id/check_results_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_descSkillItem"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFD54F"
+            android:text="Check the results"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>
