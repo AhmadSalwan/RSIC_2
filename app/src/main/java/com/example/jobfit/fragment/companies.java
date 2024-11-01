@@ -1,8 +1,8 @@
-// companies.java
 package com.example.jobfit.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -27,6 +27,12 @@ public class companies extends Fragment {
         LinearLayout item2 = view.findViewById(R.id.item2);
         LinearLayout item3 = view.findViewById(R.id.item3);
         LinearLayout item4 = view.findViewById(R.id.item4);
+
+        // Ambil referensi CardView untuk logo HP
+        CardView cardHpLogo = view.findViewById(R.id.card_hp_logo);
+
+        // Menambahkan click listener untuk cardHpLogo agar membuka fragment_comp_desc
+        cardHpLogo.setOnClickListener(v -> openFragment(new CompDescFragment()));
 
         // Menambahkan click listener untuk masing-masing item
         item1.setOnClickListener(v -> openFragment(new FactsCompFragment()));
