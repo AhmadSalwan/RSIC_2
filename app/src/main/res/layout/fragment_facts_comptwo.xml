@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FactsCompFragment"
+    tools:context=".fragment.fragment_facts_comptwo"
     android:orientation="vertical"
     android:background="#F3F3F3">
 
@@ -34,7 +34,7 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -45,7 +45,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/artikelsatu"
+                android:src="@drawable/artikeldua"
                 android:scaleType="centerCrop"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:textSize="18sp"
                 android:textColor="#803C3C80"
                 android:textStyle="bold"
-                tools:text="Inovasi Tanpa Batas: Ide Terbaik dari Para Peraih Best of The Best 8th IndonesiaNEXT"
+                tools:text="5 Rekomendasi Film Favorit yang Wajib Ditonton Bersama Keluarga!"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="30dp"/>
@@ -65,18 +65,20 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15sp"
                 android:textColor="#803C3C80"
-                android:text="Mengatasi Masalah Limbah Tekstil dengan Solusi Berkelanjutan
-
-
-Dalam beberapa tahun terakhir ini, masalah limbah tekstil menjadi sorotan utama di berbagai belahan dunia, termasuk Indonesia. Setiap tahun, jutaan ton pakaian yang tidak terpakai berakhir di Tempat Pembuangan Akhir (TPA), menciptakan dampak negatif yang signifikan terhadap lingkungan. Kesadaran akan pentingnya mengelola limbah ini semakin meningkat, terutama di kalangan generasi muda yang semakin peduli terhadap isu-isu lingkungan.
+                android:text="Tenang, ada solusinya! Nggak ada yang lebih seru dari movie marathon bareng keluarga, dengan pilihan film yang bisa bikin ketawa sekaligus terharu. Nah, berikut ini beberapa rekomendasi film yang dijamin bakal bikin akhir pekan kamu dengan keluarga lebih seru dan berkesan!
 
 
 
-Nah, Best of The Best 8th IndonesiaNEXT terpilih, Ayu, Andhika, dan Taufiq menangkap peluang dari isu ini dengan mengembangkan sebuah ide inovatif untuk menyelesaikan permasalahan limbah tekstil yang terus meningkat.
-
-
-
-“Re-Do Your Wardrobe (ReWard) berangkat dari kesadaran kami bahwa banyak sekali pakaian di lemari yang tidak lagi terpakai. Kami ingin meningkatkan pemahaman bahwa limbah tekstil merupakan limbah yang sulit terurai, dan jika kebiasaan ini terus berlanjut, dampaknya akan semakin besar. Alih-alih membiarkannya menjadi limbah, kami ingin menunjukkan bahwa masih ada nilai tambah dan potensi nilai jual dari barang-barang tersebut,” kata Ayu."
+How to Make Millions Before Grandma Dies
+Film komedi drama yang mengisahkan usaha seorang cucu untuk membuat neneknya bangga sebelum meninggal. Dengan humor segar dan cerita penuh makna, film ini mengajarkan pentingnya keluarga dan kerja keras. Cocok banget buat ditonton bareng keluarga yang suka film ringan tapi sarat pesan.
+Keluarga Cemara
+Siapa yang nggak kenal dengan film ini? Kisah keluarga sederhana yang menghadapi berbagai tantangan hidup ini penuh dengan kehangatan dan inspirasi. Film yang menyentuh hati ini mengajarkan pentingnya kebersamaan dan cinta dalam keluarga, bikin pas banget untuk dinikmati bareng anak-anak dan orang tua.
+Sampai Jadi Debu
+Drama keluarga dengan sentuhan emosional ini bercerita tentang hubungan orang tua dan anak yang diuji oleh waktu. Alur cerita yang mendalam dan menggugah perasaan bakal mengingatkan kita untuk selalu menghargai waktu bersama orang-orang tersayang. Siap-siap tisu, ya!
+Ngeri-ngeri Sedap
+Kalau ingin sesuatu yang lebih ringan dan lucu, Ngeri-ngeri Sedap bisa jadi pilihan. Cerita tentang keluarga Batak yang menghadapi konflik generasi ini penuh komedi, tapi tetap sarat makna. Cocok buat kamu yang ingin tertawa tapi juga merenungkan tentang cinta dan tradisi keluarga.
+The Monkey King
+Bagi yang suka animasi dan petualangan, The Monkey King bisa jadi tontonan seru. Kisah perjalanan Sun Wukong dalam mencari keabadian ini penuh aksi dan visual yang memukau. Anak-anak pasti suka, dan orang dewasa pun nggak bakal kecewa!"
                 android:justificationMode="inter_word"/>
         </LinearLayout>
     </ScrollView>

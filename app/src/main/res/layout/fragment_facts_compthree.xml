@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FactsCompFragment"
+    tools:context=".fragment.fragment_facts_comptwo"
     android:orientation="vertical"
     android:background="#F3F3F3">
 
@@ -34,7 +34,7 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -45,7 +45,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/artikelsatu"
+                android:src="@drawable/artikellima"
                 android:scaleType="centerCrop"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:textSize="18sp"
                 android:textColor="#803C3C80"
                 android:textStyle="bold"
-                tools:text="Inovasi Tanpa Batas: Ide Terbaik dari Para Peraih Best of The Best 8th IndonesiaNEXT"
+                tools:text="BATIC 2024: Mewujudkan Ekosistem Digital Berkelanjutan Melalui Inovasi Telkomsel"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="30dp"/>
@@ -65,18 +65,13 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15sp"
                 android:textColor="#803C3C80"
-                android:text="Mengatasi Masalah Limbah Tekstil dengan Solusi Berkelanjutan
+                android:text="Wong Soon Nam, Direktur Planning and Transformation Telkomsel, berbagi pandangan mengenai peran Telkomsel dalam mengatasi kesenjangan digital di Indonesia. Teknologi broadband 4G dan 5G Telkomsel menjadi salah satu kontribusi utama Telkomsel bagi Indonesia untuk menutup kesenjangan digital. Masih banyak wilayah yang membutuhkan akses internet, dan upaya Telkomsel dalam membangun infrastruktur jaringan secara merata di seluruh Indonesia adalah langkah awal kami untuk mengurangi kesenjangan tersebut, jelas Wong Soon Nam dalam acara BATIC 2024, (27/8).
+
+Telkomsel juga terus memperluas jaringan Hyper 5G di Indonesia. Akselerasi jaringan 5G secara masif telah dilakukan di Bali dengan total 225 titik 5G di Denpasar dan Badung guna mendukung pertumbuhan potensi ekonomi dan wisata.Inisiatif ini tidak hanya tentang menghadirkan internet berkecepatan tinggi, tapi bagaimana Telkomsel berusaha memastikan semua masyarakat dapat menikmati manfaat positif hadirnya internet berkualitas untuk mencapai kemajuan.
 
 
-Dalam beberapa tahun terakhir ini, masalah limbah tekstil menjadi sorotan utama di berbagai belahan dunia, termasuk Indonesia. Setiap tahun, jutaan ton pakaian yang tidak terpakai berakhir di Tempat Pembuangan Akhir (TPA), menciptakan dampak negatif yang signifikan terhadap lingkungan. Kesadaran akan pentingnya mengelola limbah ini semakin meningkat, terutama di kalangan generasi muda yang semakin peduli terhadap isu-isu lingkungan.
-
-
-
-Nah, Best of The Best 8th IndonesiaNEXT terpilih, Ayu, Andhika, dan Taufiq menangkap peluang dari isu ini dengan mengembangkan sebuah ide inovatif untuk menyelesaikan permasalahan limbah tekstil yang terus meningkat.
-
-
-
-“Re-Do Your Wardrobe (ReWard) berangkat dari kesadaran kami bahwa banyak sekali pakaian di lemari yang tidak lagi terpakai. Kami ingin meningkatkan pemahaman bahwa limbah tekstil merupakan limbah yang sulit terurai, dan jika kebiasaan ini terus berlanjut, dampaknya akan semakin besar. Alih-alih membiarkannya menjadi limbah, kami ingin menunjukkan bahwa masih ada nilai tambah dan potensi nilai jual dari barang-barang tersebut,” kata Ayu."
+Selain berfokus pada teknologi, Telkomsel juga berkomitmen pada aksi nyata yang berdampak positif bagi keberlanjutan lingkungan melalui program Telkomsel Jaga Bumi.
+"
                 android:justificationMode="inter_word"/>
         </LinearLayout>
     </ScrollView>

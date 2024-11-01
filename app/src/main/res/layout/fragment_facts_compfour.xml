@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FactsCompFragment"
+    tools:context=".fragment.fragment_facts_compfour"
     android:orientation="vertical"
     android:background="#F3F3F3">
 
@@ -34,7 +34,7 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -45,7 +45,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/artikelsatu"
+                android:src="@drawable/artikelenam"
                 android:scaleType="centerCrop"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:textSize="18sp"
                 android:textColor="#803C3C80"
                 android:textStyle="bold"
-                tools:text="Inovasi Tanpa Batas: Ide Terbaik dari Para Peraih Best of The Best 8th IndonesiaNEXT"
+                tools:text="Terampil di Awan: Langkah Kecil, Dampak Besar untuk Talenta Digital Penyandang Disabilitas"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="30dp"/>
@@ -65,18 +65,14 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15sp"
                 android:textColor="#803C3C80"
-                android:text="Mengatasi Masalah Limbah Tekstil dengan Solusi Berkelanjutan
+                android:text="Bayangkan teknologi bisa diakses oleh semua orang, tanpa terkecuali. Itulah semangat yang mendorong Terampil di Awan, sebuah kolaborasi antara Telkomsel dan Amazon Web Services (AWS) yang bertujuan mewujudkan inklusi digital di Indonesia.
 
 
-Dalam beberapa tahun terakhir ini, masalah limbah tekstil menjadi sorotan utama di berbagai belahan dunia, termasuk Indonesia. Setiap tahun, jutaan ton pakaian yang tidak terpakai berakhir di Tempat Pembuangan Akhir (TPA), menciptakan dampak negatif yang signifikan terhadap lingkungan. Kesadaran akan pentingnya mengelola limbah ini semakin meningkat, terutama di kalangan generasi muda yang semakin peduli terhadap isu-isu lingkungan.
-
-
-
-Nah, Best of The Best 8th IndonesiaNEXT terpilih, Ayu, Andhika, dan Taufiq menangkap peluang dari isu ini dengan mengembangkan sebuah ide inovatif untuk menyelesaikan permasalahan limbah tekstil yang terus meningkat.
+Dengan semangat yang sama, program ini telah membawa teknologi komputasi awan (cloud computing) lebih dekat kepada berbagai kalangan di seluruh Indonesia. Sejak diluncurkan pada 2021, Terampil di Awan sudah berhasil membawa teknologi komputasi awan (cloud computing) lebih dekat ke berbagai kalangan, mulai dari siswa SMP, SMA, SMK, teman-teman penyandang disabilitas, Pramuka, Santri, Kelompok Perempuan, hingga Karang Taruna.
 
 
 
-“Re-Do Your Wardrobe (ReWard) berangkat dari kesadaran kami bahwa banyak sekali pakaian di lemari yang tidak lagi terpakai. Kami ingin meningkatkan pemahaman bahwa limbah tekstil merupakan limbah yang sulit terurai, dan jika kebiasaan ini terus berlanjut, dampaknya akan semakin besar. Alih-alih membiarkannya menjadi limbah, kami ingin menunjukkan bahwa masih ada nilai tambah dan potensi nilai jual dari barang-barang tersebut,” kata Ayu."
+Salah satu fokus utama Terampil di Awan adalah memberi kesempatan belajar kepada pelajar penyandang disabilitas, khususnya dari Sekolah Luar Biasa (SLB). Mereka bisa belajar cloud computing dan pemrograman website, membuka pintu ke dunia digital yang penuh dengan peluang baru."
                 android:justificationMode="inter_word"/>
         </LinearLayout>
     </ScrollView>

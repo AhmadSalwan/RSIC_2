@@ -124,6 +124,7 @@
 
             <!-- Item 1 -->
             <LinearLayout
+                android:id="@+id/item1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -137,19 +138,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title 1"
+                    android:text="Inovasi Tanpa Batas: Ide Terbaik dari Para Peraih Best of The Best 8th IndonesiaNEXT"
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:paddingTop="8dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Description for item 1."
-                    android:textColor="#000000"/>
+
             </LinearLayout>
 
             <!-- Item 2 -->
             <LinearLayout
+                android:id="@+id/item2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -163,19 +161,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title 2"
+                    android:text="5 Rekomendasi Film Favorit yang Wajib Ditonton Bersama Keluarga!"
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:paddingTop="8dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Description for item 2."
-                    android:textColor="#000000"/>
             </LinearLayout>
 
             <!-- Item 3 -->
             <LinearLayout
+                android:id="@+id/item3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -189,19 +183,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title 3"
+                    android:text="BATIC 2024: Mewujudkan Ekosistem Digital Berkelanjutan Melalui Inovasi Telkomsel"
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:paddingTop="8dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Description for item 3."
-                    android:textColor="#000000"/>
             </LinearLayout>
 
             <!-- Item 4 -->
             <LinearLayout
+                android:id="@+id/item4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -215,15 +205,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title 4"
+                    android:text="Terampil di Awan: Langkah Kecil, Dampak Besar untuk Talenta Digital Penyandang Disabilitas
+"
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:paddingTop="8dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Description for item 4."
-                    android:textColor="#000000"/>
             </LinearLayout>
         </GridLayout>
     </androidx.cardview.widget.CardView>
