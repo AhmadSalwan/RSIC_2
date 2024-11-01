@@ -30,9 +30,11 @@ public class companies extends Fragment {
 
         // Ambil referensi CardView untuk logo HP
         CardView cardHpLogo = view.findViewById(R.id.card_hp_logo);
+        CardView cardIgLogo = view.findViewById(R.id.card_ig_logo);
 
         // Menambahkan click listener untuk cardHpLogo agar membuka fragment_comp_desc
         cardHpLogo.setOnClickListener(v -> openFragment(new CompDescFragment()));
+        cardIgLogo.setOnClickListener(v -> openFragment(new instagram_desc()));
 
         // Menambahkan click listener untuk masing-masing item
         item1.setOnClickListener(v -> openFragment(new FactsCompFragment()));
