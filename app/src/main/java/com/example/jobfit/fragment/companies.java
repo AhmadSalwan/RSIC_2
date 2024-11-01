@@ -28,13 +28,15 @@ public class companies extends Fragment {
         LinearLayout item3 = view.findViewById(R.id.item3);
         LinearLayout item4 = view.findViewById(R.id.item4);
 
-        // Ambil referensi CardView untuk logo HP
+        // Ambil referensi CardView untuk logo
         CardView cardHpLogo = view.findViewById(R.id.card_hp_logo);
         CardView cardIgLogo = view.findViewById(R.id.card_ig_logo);
+        CardView cardFbLogo = view.findViewById(R.id.card_fb_logo);
 
         // Menambahkan click listener untuk cardHpLogo agar membuka fragment_comp_desc
         cardHpLogo.setOnClickListener(v -> openFragment(new CompDescFragment()));
         cardIgLogo.setOnClickListener(v -> openFragment(new instagram_desc()));
+        cardFbLogo.setOnClickListener(v -> openFragment(new facebook_desc()));
 
         // Menambahkan click listener untuk masing-masing item
         item1.setOnClickListener(v -> openFragment(new FactsCompFragment()));
