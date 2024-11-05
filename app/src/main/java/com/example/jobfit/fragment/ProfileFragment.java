@@ -7,6 +7,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.jobfit.API.Api;
+import com.example.jobfit.API.Job;
+import com.example.jobfit.API.RetrofitClient;
+import com.example.jobfit.API.UserInput;
 import com.example.jobfit.R;
 import com.example.jobfit.db.DBHelper;
+import com.example.jobfit.db.User;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
     private DBHelper dbHelper; // DBHelper untuk akses database
@@ -47,7 +60,6 @@ public class ProfileFragment extends Fragment {
         if (email != null) {
             // Ambil data pengguna dari database
             dbHelper.getUserData(email);
-            if (email != null) {
                 // Panggil metode getUserData untuk mengambil data berdasarkan email
                 Cursor userData = dbHelper.getUserData(email);
 
@@ -64,7 +76,6 @@ public class ProfileFragment extends Fragment {
                     editTextPhone.setHint(phone != null ? phone : "Enter your phone number");
                     editGender.setHint(gender != null ? gender : "Enter your gender");
                 }
-            }
         }
         // Find the button by its ID
         Button editButton = view.findViewById(R.id.continue_editbtn);
@@ -128,5 +139,49 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        Button checkButton = view.findViewById(R.id.see_result);
+        checkButton.setOnClickListener(v -> {
+            User user=dbHelper.getUser(email);
+            if (user != null) {
+                // Buat objek UserInput dengan data skills dan experience
+                String skills = user.getSkills(); // Ambil skills dari pengguna
+                int experience = Integer.parseInt(user.getExperience()); // Ambil experience dan konversi ke int
+                UserInput userInput = new UserInput(skills, experience);
+
+                // Panggil API dengan UserInput
+                matchJob(userInput);
+            } else {
+                Toast.makeText(getContext(), "User not found", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void matchJob(UserInput userInput) {
+        Api apiService = RetrofitClient.getClient().create(Api.class);
+        Call<List<Job>> call = apiService.matchJob(userInput);
+
+        call.enqueue(new Callback<List<Job>>() {
+            @Override
+            public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
+                if(response.isSuccessful()&&response.body()!=null){
+                    List<Job> jobs = response.body();
+                    for (Job job : jobs){
+                        Log.d("Job", job.getJob_Role());
+                    }
+                }
+                else if (response.isSuccessful()==false) {
+                    Toast.makeText(getContext(), "response null", Toast.LENGTH_SHORT).show();
+                }else if (response.body()!=null) {
+                    Toast.makeText(getContext(), "response null", Toast.LENGTH_SHORT).show();
+                } else{
+                    Toast.makeText(getContext(), "Failed to match job", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Job>> call, Throwable t) {
+                Log.e("ProfileFragment", "Network request failed: " + t.getMessage());
+                Toast.makeText(getContext(), "Request failed: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

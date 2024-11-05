@@ -3,16 +3,14 @@ package com.example.jobfit.fragment;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +20,6 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -34,24 +31,16 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.canhub.cropper.CropImageContract;
-import com.canhub.cropper.CropImageContractOptions;
-
-import com.canhub.cropper.CropImageView;
 import com.example.jobfit.R;
-import com.example.jobfit.activity.MainActivity;
 import com.example.jobfit.db.DBHelper;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
-
 import java.io.File;
 import java.io.IOException;
 
 public class EditResumeFragment extends Fragment {
-    private static final int GalleryPick = 1;
     private static final int CAMERA_REQUEST = 100;
     private static final int STORAGE_REQUEST = 200;
     private static final int IMAGEPICK_GALLERY_REQUEST = 300;
@@ -66,6 +55,7 @@ public class EditResumeFragment extends Fragment {
     private ActivityResultLauncher<Intent> cameraLauncher;
     private ActivityResultLauncher<String> cameraPermissionLauncher;
     private ActivityResultLauncher<String> storagePermissionLauncher;
+    private String targetTextBox;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,7 +66,6 @@ public class EditResumeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         dbHelper = new DBHelper(getContext());
         editTextSkills = view.findViewById(R.id.skillEditText);
         editTextExperiences = view.findViewById(R.id.experienceEditText);
@@ -88,35 +77,57 @@ public class EditResumeFragment extends Fragment {
         addEducationButton = view.findViewById(R.id.addEducationButton);
         selectedImageView=view.findViewById(R.id.expimageview);
 
+
         addSkillButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showImagePicDialog();
+                showImagePicDialog("Skill");
+            }
+        });
+        addAchievementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImagePicDialog("Achievement");
+            }
+        });
+        addEducationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImagePicDialog("Education");
+            }
+        });
+        addExperienceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImagePicDialog("Experience");
             }
         });
 
+//        Inisiasi activity untuk buka kamera
         cameraLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == getActivity().RESULT_OK ) {
-                        selectedImageView.setImageURI(imageUri);
                         performOCR(imageUri);
                     } else {
                         Toast.makeText(getContext(), "Gagal"+imageUri , Toast.LENGTH_SHORT).show();
                     }
                 }
         );
+//        Inisiasi activity untuk buka gallery
         pickImageLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == getActivity().RESULT_OK && result.getData() != null) {
                         Uri imageUri = result.getData().getData();
-                        selectedImageView.setImageURI(imageUri);
+
+                        performOCR(imageUri);
                     } else {
                         Toast.makeText(getContext(), "Failed to pick image", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
+//        Activity untuk meminta izin storage
         storagePermissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
@@ -156,6 +167,7 @@ public class EditResumeFragment extends Fragment {
                     }
                 }
         );
+//        Activity untuk izin menggunakan kamera
         cameraPermissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
@@ -224,11 +236,13 @@ public class EditResumeFragment extends Fragment {
                 Toast.makeText(getContext(), "Failed to update data", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     //    give onclick for each imageview
-    private void showImagePicDialog() {
+    private void showImagePicDialog(String type) {
         String options[] = {"Camera", "Gallery"};
+        targetTextBox=type;
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Pick Image From");
         builder.setItems(options, new DialogInterface.OnClickListener() {
@@ -238,13 +252,13 @@ public class EditResumeFragment extends Fragment {
                     if (!checkCameraPermission()) {
                         requestCameraPermission();
                     } else {
-                        pickfromCamera();
+                        pickfromCamera(type);
                     }
                 } else if (which == 1) {
                     if (!checkStoragePermission()) {
                         requestStoragePermission();
                     } else {
-                        pickFromGallery();
+                        pickFromGallery(type);
                     }
                 }
             }
@@ -273,11 +287,28 @@ public class EditResumeFragment extends Fragment {
         cameraPermissionLauncher.launch(Manifest.permission.CAMERA);
     }
 
+    private void pickFromGallery(String type) {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        targetTextBox=type;
+        pickImageLauncher.launch(galleryIntent);
+    }
     private void pickFromGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         pickImageLauncher.launch(galleryIntent);
     }
 
+    private void pickfromCamera(String type) {
+        targetTextBox= type;
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        imageUri = createImageFileUri(); // Dapatkan URI file gambar sementara
+
+        if (imageUri != null) {
+            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+            cameraLauncher.launch(cameraIntent);
+        } else {
+            Toast.makeText(getContext(), "Gagal membuat file untuk gambar", Toast.LENGTH_SHORT).show();
+        }
+    }
     private void pickfromCamera() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         imageUri = createImageFileUri(); // Dapatkan URI file gambar sementara
@@ -291,19 +322,21 @@ public class EditResumeFragment extends Fragment {
     }
 
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
             case CAMERA_REQUEST:{
                 Uri imageUri = data.getData(); // Sesuaikan dengan cara menangani gambar yang diambil
-                selectedImageView.setImageURI(imageUri); // Tampilkan gambar yang diambil
+
             }
             case STORAGE_REQUEST:{
 
             }
         }
     }
+//    Untuk membuat Uri sementara pada hasil tangkapan gambar, yang kemudian diolah menjadi OCR
     private Uri createImageFileUri() {
         File storageDir = getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         try {
@@ -311,13 +344,14 @@ public class EditResumeFragment extends Fragment {
                     "JPEG_" + System.currentTimeMillis() + "_",
                     ".jpg",
                     storageDir
-            );
+                );
             return FileProvider.getUriForFile(getContext(), "com.example.jobfit.fileprovider", imageFile);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
+//   Metode untuk melakukan OCR pada gambar yang dipilih.
     private void performOCR(Uri imageUri) {
         try {
             // Membuat objek InputImage dari URI
@@ -331,8 +365,8 @@ public class EditResumeFragment extends Fragment {
                     .addOnSuccessListener(visionText -> {
                         // Mendapatkan hasil teks
                         String detectedText = visionText.getText();
-                        // Tampilkan hasil di UI atau simpan ke database
-                        Toast.makeText(getContext(), "Teks terdeteksi: " + detectedText, Toast.LENGTH_LONG).show();
+                        showDetectedTextDialog(getContext(), detectedText,targetTextBox);
+
                     })
                     .addOnFailureListener(e -> {
                         // Penanganan jika OCR gagal
@@ -344,5 +378,28 @@ public class EditResumeFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(getContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void showDetectedTextDialog(Context context, String text, String target) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Detected Text");
+        builder.setMessage(text)
+                .setPositiveButton("OK", (dialog, which) -> {
+                    switch (target){
+                        case "Skill":
+                            editTextSkills.setText(text);
+                            break;
+                        case "Experience":
+                            editTextExperiences.setText(text);
+                            break;
+                        case "Achievement":
+                            editTextAchievements.setText(text);
+                            break;
+                        case "Education":
+                            editTextEducation.setText(text);
+                    }
+                    dialog.dismiss();
+                });
+        builder.create().show();
     }
 }
