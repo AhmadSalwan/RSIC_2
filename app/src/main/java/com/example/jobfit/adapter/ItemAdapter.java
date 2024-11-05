@@ -38,7 +38,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         Item item = items.get(position);
         holder.TV_Title.setText(item.getTitle());
         holder.TV_Company.setText(item.getCompany());
-        holder.TV_Description.setText(item.getDescription());
+//        holder.TV_Description.setText(item.getDescription());
         holder.btn_result.setOnClickListener(v ->{
 
         });
