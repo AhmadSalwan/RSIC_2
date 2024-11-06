@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -42,34 +39,54 @@ public class activity_register_page extends AppCompatActivity {
             String selectedGender = binding.genderDropdown.getText().toString().trim();
 
             // Input validation
-            if (TextUtils.isEmpty(uName) || uName.length() > 20) {
-                binding.nameInputLayout.setError("Name is required and should not exceed 20 characters");
+            if (TextUtils.isEmpty(uName)) {
+                binding.nameInputLayout.setError("Nama tidak boleh kosong");
                 return;
+            } else if (uName.length() > 20) {
+                binding.nameInputLayout.setError("Nama tidak boleh melebihi 20 karakter");
+                return;
+            } else {
+                binding.nameInputLayout.setError(null);
             }
 
-            if (TextUtils.isEmpty(uEmail) || !uEmail.endsWith("@gmail.com")) {
-                binding.emailInputLayout.setError("Email is required and must end with @gmail.com");
+            if (TextUtils.isEmpty(uEmail)) {
+                binding.emailInputLayout.setError("Email tidak boleh kosong");
                 return;
+            } else if (!uEmail.endsWith("@gmail.com")) {
+                binding.emailInputLayout.setError("Email harus diakhiri dengan @gmail.com");
+                return;
+            } else {
+                binding.emailInputLayout.setError(null);
             }
 
-            if (TextUtils.isEmpty(uPhoneNumber) || uPhoneNumber.length() > 14) {
-                binding.phoneEditText.setError("Phone number is required and must not exceed 14 characters");
+            if (TextUtils.isEmpty(uPhoneNumber)) {
+                binding.phoneEditText.setError("Nomor telepon tidak boleh kosong");
                 return;
+            } else if (!uPhoneNumber.matches("\\d+")) {
+                binding.phoneEditText.setError("Nomor telepon hanya boleh berisi angka");
+                return;
+            } else if (uPhoneNumber.length() > 14) {
+                binding.phoneEditText.setError("Nomor telepon tidak boleh melebihi 14 karakter");
+                return;
+            } else {
+                binding.phoneEditText.setError(null);
             }
 
             if (TextUtils.isEmpty(selectedGender)) {
-                binding.genderDropdown.setError("Please select your gender");
+                binding.genderDropdown.setError("Silakan pilih jenis kelamin Anda");
                 return;
+            } else {
+                binding.genderDropdown.setError(null);
             }
 
             // Check if email already exists
             if (dbHelper.isEmailExists(uEmail)) {
-                binding.emailInputLayout.setError("This email is already registered");
-                Toast.makeText(activity_register_page.this, "Email already used, please use another one.", Toast.LENGTH_SHORT).show();
+                binding.emailInputLayout.setError("Email ini sudah terdaftar");
+                Toast.makeText(activity_register_page.this, "Email sudah digunakan, silakan gunakan yang lain.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // If all inputs are valid, proceed to activity_register_image
+            // If all inputs are valid, proceed to activity_register_resume
             Intent intent = new Intent(activity_register_page.this, activity_register_resume.class);
             intent.putExtra("name", uName);
             intent.putExtra("email", uEmail);
