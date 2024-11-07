@@ -66,3 +66,59 @@ This project is aimed at improving the recruitment process for Calon Pegawai Neg
    * Optimize resource allocation by prioritizing top candidates.
    * Improve matching accuracy based on qualifications and test results.
 * How: Utilizes AI, including NLP and machine learning, with data security ensured through encryption and scalable infrastructure via cloud services.
+
+  ## Arsitektur Application
+![Arsitektur drawio](https://github.com/user-attachments/assets/ff2d1efd-a081-40bf-9cd5-3127f5c8612b)
+1. Frontend Layer
+   * User Interface (Mobile Application): This is the user-facing part of the mobile application used by job applicants. The frontend includes key features:
+     * Job Matching: Provides job matching between the applicant’s profile and the job openings from companies.
+     * Company Funfact: Displays interesting facts about the company to attract applicants.
+     * Profile: A space for applicants to manage and update their profiles.
+2. Application Layer
+   * AI Powered Modules: This layer contains AI-based modules that help process and analyze data from applicants and companies. These modules include
+     * Automatic Screening (Machine Learning): Uses machine learning to automatically screen applicants based on certain criteria.
+     * Position Matching (AI Matching Engine): Employs AI algorithms to match applicant qualifications with relevant job descriptions.
+     * CV & Application Analysis (NLP): Utilizes natural language processing to analyze applicants’ CVs and cover letters for relevant keywords and patterns.
+     * Test Result Evaluation (Automated Scoring): This module automates the scoring of applicants’ test results, such as CAT (Computer Assisted Test) and other competencies.
+     * Database Management System: Acts as a bridge between the Application Layer and Data Layer, managing and accessing the data.
+3. Data Layer
+   * This layer stores the necessary data for the application, including:
+     * Applicant Database: Data of applicants who apply through the platform.
+     * Job Descriptions: Stores information on job positions available from companies.
+     * Test Results (CAT, Competencies): Data on test results or assessments conducted for applicants.
+     * User Activity Log: Records logs of user activities, such as interactions with the app and features used.
+
+### System Workflow
+
+1. Applicant Uses Mobile Application: The applicant opens the mobile app and accesses features like Job Matching, Company Funfact, or Profile.
+2. Data Sent to Application Layer: Data from the Frontend Layer is sent to the Application Layer.
+3 Processing in Application Layer: In the Application Layer, AI modules process the data for screening, matching, CV analysis, and test result evaluation.
+4. Database Management System: The database management system stores and manages data in the Data Layer.
+5. Storage in Data Layer: Essential data such as applicant profiles, job descriptions, test results, and user activity logs are stored in the Data Layer for future use.
+
+## Use Case Diagram
+![image](https://github.com/user-attachments/assets/ee1aeacd-4d7f-4482-aa44-01d41d0a2f66)
+
+### Actors
+  1. User: Represents the general user, likely an applicant who interacts with the application.
+  2. Company: Represents a company or employer that provides job-related information for matching.
+  3. IT Team: Represents the technical support team responsible for maintaining and repairing the system.
+
+### Use Cases
+1. Job Matching:
+   * The User can access the Job Matching feature to find suitable job positions based on their profile and qualifications.
+   * The Company is also involved, as they provide the job listings that are matched with users.
+
+2. Check Company Funfact:
+    * The User can access Company Funfact to view interesting facts or information about the company, which can make the company more appealing to potential applicants.
+
+3. See Profile:
+    * The User can view their profile, where they can manage or update their information.
+
+4. Maintenance:
+    * The IT Team is responsible for system maintenance, ensuring that the application runs smoothly and performs efficiently.
+
+5. Repair:
+    * The IT Team is also involved in the Repair process, addressing any technical issues or bugs that arise to keep the system operational.
+
+This use case diagram shows how different actors interact with the system. The User primarily interacts with features that provide job information, company insights, and personal profile management. The Company plays a supportive role by providing data for job matching. Meanwhile, the IT Team ensures the system’s stability and functionality through maintenance and repair activities.
