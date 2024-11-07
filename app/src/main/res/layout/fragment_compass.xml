@@ -45,13 +45,13 @@
         android:layout_marginTop="150dp"
         android:padding="16dp"
         app:cardCornerRadius="8dp"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#D91656"> <!-- Ganti dengan kode hex warna yang diinginkan -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-           >
+            android:orientation="vertical">
 
             <!-- TextView for card details -->
             <TextView
@@ -59,10 +59,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Card Details"
-                android:paddingLeft="20dp"
+                android:paddingLeft="10dp"
                 android:paddingTop="20dp"
+                android:paddingRight="10dp"
                 android:textSize="18sp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:paddingBottom="8dp" />
 
             <!-- Button to check the result -->
@@ -70,10 +71,12 @@
                 android:id="@+id/checkResultButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
                 android:text="Check the Result"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@color/colorPrimary" />
+                android:textColor="@android:color/black"
+                android:backgroundTint="#FFEB55" /> <!-- Ganti dengan kode hex warna yang diinginkan -->
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

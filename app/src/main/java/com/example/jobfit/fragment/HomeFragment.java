@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.jobfit.API.Api;
@@ -36,13 +37,17 @@ public class HomeFragment extends Fragment {
     private ArrayList<Integer> imageList;
     private SwipeAdapter swipeAdapter;
     private Api apiService;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         imageViewUser = toolbar.findViewById(R.id.head_image);
+        progressBar = view.findViewById(R.id.progressBar); // Initialize ProgressBar
+
         String email = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE).getString("email", null);
         dbHelper = new DBHelper(getContext());
 
@@ -99,13 +104,17 @@ public class HomeFragment extends Fragment {
 
     // Fetch job data from API
     private void fetchJobsData() {
+        progressBar.setVisibility(View.VISIBLE); // Show ProgressBar
+
         apiService.getCompaniesJobs().enqueue(new Callback<List<Job>>() {
             @Override
             public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
+                progressBar.setVisibility(View.GONE); // Hide ProgressBar
+
                 if (response.isSuccessful() && response.body() != null) {
                     for (Job job : response.body()) {
                         dataList.add(job.getJob_Role() + " at " + job.getCompany());
-                        imageList.add(R.drawable.gedung8);  // Replace with an appropriate image resource
+                        imageList.add(R.drawable.gedung8); // Replace with an appropriate image resource
                     }
                     swipeAdapter.notifyDataSetChanged();
                 } else {
@@ -115,6 +124,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Job>> call, Throwable t) {
+                progressBar.setVisibility(View.GONE); // Hide ProgressBar
                 Toast.makeText(getContext(), "API call failed", Toast.LENGTH_SHORT).show();
             }
         });
