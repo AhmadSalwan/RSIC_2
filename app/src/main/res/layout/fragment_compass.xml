@@ -6,24 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".fragment.CompassFragment">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <!-- AppBarLayout with Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        </com.google.android.material.appbar.AppBarLayout>
-
+        <!-- Toolbar as a direct child of AppBarLayout -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:padding="10dp"
-            app:layout_anchor="@+id/toolbar"
-            app:layout_anchorGravity="center">
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/head_image"
@@ -39,27 +34,48 @@
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/jobfit_head" />
         </androidx.appcompat.widget.Toolbar>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- RecyclerView for the job list -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_itemJobList"
-        android:layout_width="match_parent"
-        android:layout_height="665dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        android:layout_gravity="bottom"
-        app:spanCount="1"
-        tools:listitem="@layout/item_card"/>
-
-    <!-- TextView for card details (added here) -->
-    <TextView
-        android:id="@+id/cardDetailsText"
+    <!-- CardView to hold card details and button -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Card Details"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:layout_marginTop="150dp"
         android:padding="16dp"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/black" />
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+           >
+
+            <!-- TextView for card details -->
+            <TextView
+                android:id="@+id/cardDetailsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Card Details"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:paddingBottom="8dp" />
+
+            <!-- Button to check the result -->
+            <Button
+                android:id="@+id/checkResultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Check the Result"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/colorPrimary" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>
