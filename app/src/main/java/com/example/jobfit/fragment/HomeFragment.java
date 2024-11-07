@@ -19,8 +19,8 @@ import com.example.jobfit.API.Job;
 import com.example.jobfit.R;
 import com.example.jobfit.adapter.SwipeAdapter;
 import com.example.jobfit.db.DBHelper;
-import com.example.jobfit.model.Item;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,7 +87,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onRightCardExit(Object dataObject) {
                 String cardData = (String) dataObject;
-                addCardToCompassFragment(cardData);
+                // Pass data to CompassFragment without immediate navigation
+                navigateToCompassFragment(cardData);
             }
 
             @Override
@@ -130,16 +131,19 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void addCardToCompassFragment(String cardData) {
+    private void navigateToCompassFragment(String cardData) {
+        // Create a new instance of CompassFragment
         CompassFragment compassFragment = new CompassFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("card_data", cardData);
-        compassFragment.setArguments(bundle);
 
+        // Create a Bundle to pass data
+        Bundle bundle = new Bundle();
+        bundle.putString("card_data", cardData);  // Pass card data to CompassFragment
+        compassFragment.setArguments(bundle);  // Attach the Bundle to the fragment
+
+        // Start a fragment transaction to replace the current fragment
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, compassFragment);
-        transaction.addToBackStack(null);
+        transaction.addToBackStack(null);  // Add this fragment to the back stack
         transaction.commit();
     }
 }
-

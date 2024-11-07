@@ -1,23 +1,14 @@
 package com.example.jobfit.fragment;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jobfit.adapter.ItemAdapter;
-import com.example.jobfit.db.DBHelper;
+import androidx.fragment.app.Fragment;
+
 import com.example.jobfit.R;
-import com.example.jobfit.db.JobItemData;
 
 public class CompassFragment extends Fragment {
 
@@ -28,16 +19,21 @@ public class CompassFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_compass, container, false);
 
-        // Get the card data passed from HomeFragment
+        // Retrieve the data from the arguments
         if (getArguments() != null) {
             cardData = getArguments().getString("card_data");
         }
 
-        // Use the cardData to display in CompassFragment (e.g., show details)
-        TextView cardDetailsText = view.findViewById(R.id.cardDetailsText);
-        cardDetailsText.setText(cardData); // Example to show data in TextView
+        // Find the TextView to display the data
+        TextView textView = view.findViewById(R.id.cardDetailsText);
+
+        // Display the cardData in the TextView
+        if (cardData != null) {
+            textView.setText(cardData);
+        } else {
+            textView.setText("No data received");
+        }
 
         return view;
     }
 }
-
