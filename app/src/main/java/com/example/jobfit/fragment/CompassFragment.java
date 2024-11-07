@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.jobfit.adapter.ItemAdapter;
 import com.example.jobfit.db.DBHelper;
@@ -19,37 +20,24 @@ import com.example.jobfit.R;
 import com.example.jobfit.db.JobItemData;
 
 public class CompassFragment extends Fragment {
-    private DBHelper dbHelper;
-    private ImageView imageViewUser;
-    private RecyclerView rv_itemJob;
-    private ItemAdapter itemAdapter;
+
+    private String cardData;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_compass, container, false);
 
-        dbHelper = new DBHelper(getContext());
-        rv_itemJob = view.findViewById(R.id.rv_itemJobList);
-        rv_itemJob.setHasFixedSize(true);
-        itemAdapter = new ItemAdapter(JobItemData.items, getContext());
-        rv_itemJob.setAdapter(itemAdapter);
-
-        Toolbar toolbar = view.findViewById(R.id.toolbar);
-        imageViewUser = toolbar.findViewById(R.id.head_image);
-        String email = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE).getString("email", null);
-
-        if (email != null) {
-            // Mendapatkan gambar profil
-            Bitmap profilePicture = dbHelper.getUserProfilePicture(email);
-            if (profilePicture != null) {
-                imageViewUser.setImageBitmap(profilePicture); // Set gambar pada ImageView
-            } else {
-                // Set gambar default jika tidak ada
-                imageViewUser.setImageResource(R.drawable.main_image);
-            }
+        // Get the card data passed from HomeFragment
+        if (getArguments() != null) {
+            cardData = getArguments().getString("card_data");
         }
+
+        // Use the cardData to display in CompassFragment (e.g., show details)
+        TextView cardDetailsText = view.findViewById(R.id.cardDetailsText);
+        cardDetailsText.setText(cardData); // Example to show data in TextView
 
         return view;
     }
 }
+

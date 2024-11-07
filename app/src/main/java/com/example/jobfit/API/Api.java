@@ -8,6 +8,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface Api {
+    @GET("companies_jobs/json")
+    Call<List<Job>> getCompaniesJobs();
+
     @POST("match_job")
     Call<List<Job>> matchJob(@Body UserInput userInput);
 }

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.CompassFragment">
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -14,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.appcompat.widget.Toolbar
@@ -41,6 +41,7 @@
         </androidx.appcompat.widget.Toolbar>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <!-- RecyclerView for the job list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_itemJobList"
         android:layout_width="match_parent"
@@ -49,5 +50,16 @@
         android:layout_gravity="bottom"
         app:spanCount="1"
         tools:listitem="@layout/item_card"/>
+
+    <!-- TextView for card details (added here) -->
+    <TextView
+        android:id="@+id/cardDetailsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Card Details"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/black" />
 
 </FrameLayout>

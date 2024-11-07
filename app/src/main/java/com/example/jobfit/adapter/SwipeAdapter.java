@@ -45,7 +45,7 @@ public class SwipeAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.card_item, parent, false);
         }
 
-        TextView cardText = convertView.findViewById(R.id.cardText);
+        TextView cardText = convertView.findViewById(R.id.roleName);
         ImageView cardImage = convertView.findViewById(R.id.cardImage);
 
         // Set the card title/text

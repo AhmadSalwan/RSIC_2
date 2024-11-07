@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@drawable/ic_launcher_background" /> <!-- Ganti dengan gambar default -->
 
     <!-- Overlay untuk efek gelap -->
     <View
@@ -23,7 +23,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="bottom|center_horizontal"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_marginBottom="32dp"> <!-- Menaikkan posisi teks sedikit -->
 
         <TextView
             android:id="@+id/roleName"
@@ -31,26 +32,6 @@
             android:layout_height="wrap_content"
             android:text="Role Name"
             android:textSize="18sp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"/>
-
-        <TextView
-            android:id="@+id/companyName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Company Name"
-            android:textSize="16sp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"/>
-
-        <TextView
-            android:id="@+id/cardText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Card"
-            android:textSize="24sp"
             android:textColor="@android:color/white"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
