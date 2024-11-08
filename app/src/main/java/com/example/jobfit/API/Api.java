@@ -11,6 +11,10 @@ public interface Api {
     @GET("companies_jobs/json")
     Call<List<Job>> getCompaniesJobs();
 
-    @POST("match_job")
+    @POST("match_job/json")
     Call<List<Job>> matchJob(@Body UserInput userInput);
+
+    @POST("top_matches")
+    Call<List<Job>> top_matches(@Body UserInput userInput);
+
 }
