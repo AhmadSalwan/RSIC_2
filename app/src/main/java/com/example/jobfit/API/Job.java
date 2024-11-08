@@ -6,6 +6,7 @@ public class Job {
     private String Location;
     private double Skill_Similarity;
     private double Experience_Diff;
+    private double Match_Percentage;
 
     public String getJob_Role() {
         return Job_Role;
@@ -45,5 +46,13 @@ public class Job {
 
     public void setExperience_Diff(double experience_Diff) {
         Experience_Diff = experience_Diff;
+    }
+
+    public double getMatch_Percentage() {
+        return Match_Percentage;
+    }
+
+    public void setMatch_Percentage(double match_Percentage) {
+        Match_Percentage = match_Percentage;
     }
 }

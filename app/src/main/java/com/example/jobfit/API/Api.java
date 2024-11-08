@@ -14,7 +14,4 @@ public interface Api {
     @POST("match_job/json")
     Call<List<Job>> matchJob(@Body UserInput userInput);
 
-    @POST("top_matches")
-    Call<List<Job>> top_matches(@Body UserInput userInput);
-
 }

@@ -146,10 +146,10 @@ public class ProfileFragment extends Fragment {
                 // Buat objek UserInput dengan data skills dan experience
                 String skills = user.getSkills(); // Ambil skills dari pengguna
                 int experience = Integer.parseInt(user.getExperience()); // Ambil experience dan konversi ke int
-                UserInput userInput = new UserInput(skills, experience);
+//                UserInput userInput = new UserInput(skills, experience);
 
                 // Panggil API dengan UserInput
-                matchJob(userInput);
+//                matchJob(userInput);
             } else {
                 Toast.makeText(getContext(), "User not found", Toast.LENGTH_SHORT).show();
             }

@@ -132,18 +132,24 @@ public class HomeFragment extends Fragment {
     }
 
     private void navigateToCompassFragment(String cardData) {
+        // Assuming cardData is in the format "JobRole at Company"
+        String[] parts = cardData.split(" at ");
+        String jobRole = parts[0];
+        String company = parts[1];
+
         // Create a new instance of CompassFragment
         CompassFragment compassFragment = new CompassFragment();
 
         // Create a Bundle to pass data
         Bundle bundle = new Bundle();
-        bundle.putString("card_data", cardData);  // Pass card data to CompassFragment
-        compassFragment.setArguments(bundle);  // Attach the Bundle to the fragment
+        bundle.putString("job_role", jobRole);
+        bundle.putString("company", company);
+        compassFragment.setArguments(bundle);
 
         // Start a fragment transaction to replace the current fragment
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, compassFragment);
-        transaction.addToBackStack(null);  // Add this fragment to the back stack
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }
