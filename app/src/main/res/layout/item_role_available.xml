@@ -13,9 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp">
-
         <TextView
-            android:id="@+id/textTitle"
+            android:id="@+id/tv_role_available"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Graduate Programs  Internships"
@@ -23,6 +22,5 @@
             android:textSize="18sp"
             android:textColor="#5D5D5D"
             android:layout_centerVertical="true" />
-
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

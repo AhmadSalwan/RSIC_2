@@ -1,35 +1,112 @@
 package com.example.jobfit.model;
 
 
-public class Company {
-    private String name;
-    private String description;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    // Constructor with parameters
-    public Company(String name, String description, int logohp) {
-        this.name = name;
-        this.description = description;
+import androidx.annotation.NonNull;
+
+import java.util.List;
+
+public class Company implements Parcelable {
+    private String companyTitle;
+    private String address;
+    private String about;
+    private int logo;
+    private List<String> role;
+    private int kantor_img;
+
+    public Company(String companyTitle, String address, String about, int logo, List<String> role, int kantor_img) {
+        this.companyTitle = companyTitle;
+        this.address = address;
+        this.about = about;
+        this.logo = logo;
+        this.role = role;
+        this.kantor_img = kantor_img;
     }
 
-    // Default constructor (if needed)
-    public Company() {
+    public int getKantor_img() {
+        return kantor_img;
     }
 
-    // Getters
-    public String getName() {
-        return name;
+    public void setKantor_img(int kantor_img) {
+        this.kantor_img = kantor_img;
     }
 
-    public String getDescription() {
-        return description;
+    public List<String> getRole() {
+        return role;
     }
 
-    // Optionally, you can add setters if you want to modify these fields later
-    public void setName(String name) {
-        this.name = name;
+    public void setRole(List<String> role) {
+        this.role = role;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public int getLogo() {
+        return logo;
+    }
+
+    public void setLogo(int logo) {
+        this.logo = logo;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCompanyTitle() {
+        return companyTitle;
+    }
+
+    public void setCompanyTitle(String companyTitle) {
+        this.companyTitle = companyTitle;
+    }
+
+
+    protected Company(Parcel in) {
+        companyTitle = in.readString();
+        address = in.readString();
+        about = in.readString();
+        logo = in.readInt();
+        role = in.createStringArrayList();
+        kantor_img = in.readInt();
+    }
+
+    public static final Creator<Company> CREATOR = new Creator<Company>() {
+        @Override
+        public Company createFromParcel(Parcel in) {
+            return new Company(in);
+        }
+
+        @Override
+        public Company[] newArray(int size) {
+            return new Company[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(companyTitle);
+        parcel.writeString(address);
+        parcel.writeString(about);
+        parcel.writeInt(logo);
+        parcel.writeStringList(role);
+        parcel.writeInt(kantor_img);
     }
 }

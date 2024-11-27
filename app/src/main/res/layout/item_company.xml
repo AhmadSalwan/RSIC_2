@@ -11,10 +11,10 @@
     android:elevation="4dp">
 
     <ImageView
-    android:id="@+id/logo_image_company"
-    android:layout_width="60dp"
-    android:layout_height="60dp"
-    android:layout_gravity="center"
-    tools:src="@mipmap/ic_launcher_round"
-    android:scaleType="fitCenter" />
+        android:id="@+id/iv_logocompany"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        tools:src="@mipmap/ic_launcher_round"
+        android:scaleType="fitCenter" />
 </LinearLayout>

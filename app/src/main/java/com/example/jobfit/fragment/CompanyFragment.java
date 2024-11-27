@@ -11,9 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.jobfit.db.CompanyData;
 import com.example.jobfit.db.DBHelper;
 import com.example.jobfit.model.Company;
 import com.example.jobfit.adapter.CompanyAdapter;
@@ -25,9 +27,8 @@ import java.util.List;
 public class CompanyFragment extends Fragment {
     private ImageView imageViewUser;
     private DBHelper dbHelper;
-    private RecyclerView rvCompanyFacts;
-    private CompanyAdapter companyFactsAdapter;
-    private List<Company> companyList;
+    private RecyclerView rvCompanyFacts, rv_companyLogo;
+    private CompanyAdapter companyAdapter;
 
     @Nullable
     @Override
@@ -53,20 +54,18 @@ public class CompanyFragment extends Fragment {
             }
         }
 
-        // Inisialisasi RecyclerView
-        rvCompanyFacts = view.findViewById(R.id.rv_companyfacts);
-        rvCompanyFacts.setHasFixedSize(true);
-        rvCompanyFacts.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv_companyLogo = view.findViewById(R.id.rv_company);
+        rv_companyLogo.setHasFixedSize(true);
+        companyAdapter = new CompanyAdapter(CompanyData.companies, company -> {
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("company", company);
+            NavHostFragment.findNavController(CompanyFragment.this).navigate(R.id.action_companyFragment_to_compDescFragment, bundle);
+        });
 
-        // Inisialisasi data Company dengan logo
-        companyList = new ArrayList<>();
-        companyList.add(new Company("Company 1", "Description for Company 1", R.drawable.logohp));
-        companyList.add(new Company("Company 2", "Description for Company 2", R.drawable.main_image));
-        companyList.add(new Company("Company 3", "Description for Company 3", R.drawable.main_image));
 
-        // Set adapter ke RecyclerView
-        companyFactsAdapter = new CompanyAdapter(companyList);
-        rvCompanyFacts.setAdapter(companyFactsAdapter);
+        rv_companyLogo.setAdapter(companyAdapter);
+
+
 
         return view;
     }

@@ -41,6 +41,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation ("com.cloudinary:cloudinary-android:2.5.0")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation("androidx.activity:activity:1.9.3")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation("androidx.navigation:navigation-fragment:2.6.0")
     implementation("androidx.navigation:navigation-ui:2.6.0")

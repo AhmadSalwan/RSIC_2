@@ -6,19 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".fragment.CompassFragment">
 
-    <!-- AppBarLayout with Toolbar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:layout_height="wrap_content">
 
-        <!-- Toolbar as a direct child of AppBarLayout -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        </com.google.android.material.appbar.AppBarLayout>
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:padding="10dp">
+            android:padding="10dp"
+            app:layout_anchor="@+id/toolbar"
+            app:layout_anchorGravity="center">
 
             <ImageView
                 android:id="@+id/head_image"
@@ -34,7 +40,7 @@
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/jobfit_head" />
         </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- CardView to hold card details and button -->
     <androidx.cardview.widget.CardView
@@ -46,6 +52,7 @@
         android:padding="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
+        android:background="@drawable/bg_itemlist"
         app:cardBackgroundColor="#D91656"> <!-- Ganti dengan kode hex warna yang diinginkan -->
 
         <LinearLayout

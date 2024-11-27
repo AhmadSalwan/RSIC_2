@@ -61,7 +61,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             super(itemView);
             TV_Title = itemView.findViewById(R.id.tv_titleitemJD);
             TV_Company = itemView.findViewById(R.id.tv_companyNameitemJD);
-            TV_Description = itemView.findViewById(R.id.tv_description);
+            TV_Description = itemView.findViewById(R.id.tv_descSkillItem);
             btn_result = itemView.findViewById(R.id.check_results_button);
         }
     }

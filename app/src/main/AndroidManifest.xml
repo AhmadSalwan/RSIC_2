@@ -23,7 +23,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JobFit"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activity.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CompanyFactsActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.activity_register_resume"
             android:exported="false"
@@ -36,23 +41,24 @@
             android:name=".activity.activity_register_page"
             android:exported="false"
             android:theme="@style/Theme.JobFit" />
-        <activity android:name="com.example.jobfit.activity.Login"
+        <activity
+            android:name=".activity.Login"
             android:exported="false"
-            android:theme="@style/Theme.JobFit"/>
-
+            android:theme="@style/Theme.JobFit" />
         <activity
             android:name=".activity.intro_activity"
             android:exported="true"
             android:theme="@style/Theme.JobFit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.jobfit.fileprovider"

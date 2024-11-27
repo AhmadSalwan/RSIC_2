@@ -1,8 +1,12 @@
 package com.example.jobfit.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,14 +15,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.jobfit.model.Company;
 import com.example.jobfit.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder> {
 
-    private List<Company> companyList;
+    private ArrayList<Company> companies;
+    private OnItemClickListener listener;
 
-    public CompanyAdapter(List<Company> companyList) {
-        this.companyList = companyList;
+    public interface OnItemClickListener {
+        void onItemClick(Company company);
+    }
+
+    public CompanyAdapter(ArrayList<Company> companies, OnItemClickListener listener) {
+        this.companies = companies;
+        this.listener = listener;
     }
 
     @NonNull
@@ -31,25 +42,26 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyV
 
     @Override
     public void onBindViewHolder(@NonNull CompanyViewHolder holder, int position) {
-        // Set data to item layout
-        Company company = companyList.get(position);
-//        holder.titleTextView.setText(company.getTitle());
-//        holder.descriptionTextView.setText(company.getDescription());
+        Company company = companies.get(position);
+        holder.bind(company);
     }
 
     @Override
     public int getItemCount() {
-        return companyList.size();
+        return companies.size();
     }
 
-    // ViewHolder class
-    public class CompanyViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView, descriptionTextView;
+    class CompanyViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgCompanyLogo;
 
         public CompanyViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.tv_title);
-            descriptionTextView = itemView.findViewById(R.id.tv_description);
+            imgCompanyLogo = itemView.findViewById(R.id.iv_logocompany);
+        }
+
+        public void bind(final Company company) {
+            imgCompanyLogo.setImageResource(company.getLogo());
+            itemView.setOnClickListener(v -> listener.onItemClick(company));
         }
     }
 }

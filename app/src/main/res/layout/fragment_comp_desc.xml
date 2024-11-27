@@ -1,231 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.CompDescFragment"
-    android:background="@android:color/white">
-    
-    <RelativeLayout
+    android:background="@android:color/white"
+    android:orientation="vertical">
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <ImageView
-            android:id="@+id/company_desc_image"
+            android:id="@+id/iv_company_office_desc"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/hpoffice" />
-        <LinearLayout
-            android:id="@+id/container_company_desc"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <!-- Tambahkan ScrollView di sekitar LinearLayout berwarna pink -->
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@drawable/bgcompanydesc"
-            android:paddingTop="20dp"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            android:layout_marginTop="180dp">
+            android:layout_below="@id/company_desc_image">
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="@drawable/background_nama_perusahaan_desc"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="25dp"/>
-            <RelativeLayout
+                android:id="@+id/container_company_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/background_nama_perusahaan_desc">
+                android:orientation="vertical"
+                android:background="@drawable/bgcompanydesc"
+                android:paddingTop="20dp"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:layout_marginTop="180dp">
+
+                <!-- Konten bagian dalam seperti teks dan RecyclerView -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_alignParentStart="true"
-                    android:layout_margin="10dp"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="HP Inc."
-                        android:textSize="19sp"
-                        android:textStyle="bold"
-                        android:textColor="#5D5D5D"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Clichy, Perancis"
-                        android:textSize="13sp"
-                        android:textColor="#5D5D5D"/>
-                </LinearLayout>
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_alignParentEnd="true"
-                    android:src="@drawable/logohp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"/>
-            </RelativeLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:text="About"
-                android:layout_marginStart="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HP Inc. is a multinational technology company based in the United States, renowned for its broad range of technology products and services, including laptops, desktops, printers, and business solutions."
-                android:textColor="@color/white"
-                android:layout_marginStart="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:textSize="24sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:text="Role Available"
-                android:layout_marginStart="10dp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/background_nama_perusahaan_desc"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="25dp" />
 
-                <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#CCD9D9CC">
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/background_nama_perusahaan_desc">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp">
-
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="10dp"
+                        android:layout_centerVertical="true">
                         <TextView
-                            android:id="@+id/rolesatuhp"
+                            android:id="@+id/tv_companyNameDesc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Data Analyst"
+                            tools:text="HP Inc."
+                            android:textSize="19sp"
                             android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="#5D5D5D"
-                            android:layout_centerVertical="true" />
-
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#CCD9D9CC">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp">
-
+                            android:textColor="#5D5D5D" />
                         <TextView
-                            android:id="@+id/roleduahp"
+                            android:id="@+id/tv_companyLocationDesc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Website Developer"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="#5D5D5D"
-                            android:layout_centerVertical="true" />
+                            tools:text="Clichy, Perancis"
+                            android:textSize="13sp"
+                            android:textColor="#5D5D5D" />
+                    </LinearLayout>
 
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:id="@+id/iv_company_logo_desc"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentEnd="true"
+                        tools:src="@drawable/ic_launcher_background"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp" />
+                </RelativeLayout>
 
-                <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#CCD9D9CC">
+                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="About"
+                    android:layout_marginStart="10dp" />
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp">
-
-                        <TextView
-                            android:id="@+id/roletigahp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Machine Learning Engineer"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="#5D5D5D"
-                            android:layout_centerVertical="true" />
-
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                <TextView
+                    android:id="@+id/tv_companyDescriptionDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#CCD9D9CC">
+                    tools:text="HP Inc. is a multinational technology company based in the United States, renowned for its broad range of technology products and services, including laptops, desktops, printers, and business solutions."
+                    android:textColor="@color/white"
+                    android:layout_marginStart="10dp" />
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Role Available"
+                    android:layout_marginStart="10dp" />
 
-                        <TextView
-                            android:id="@+id/roleempathp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Office Sales"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="#5D5D5D"
-                            android:layout_centerVertical="true" />
-
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_role_available"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    app:spanCount="1"
+                    android:layout_marginStart="5dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/item_role_available" />
 
             </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
 
-
-
-
-
-
-
-
-
-
-
-
-        </LinearLayout>
-    </RelativeLayout>
-
-</ScrollView>
+</LinearLayout>
