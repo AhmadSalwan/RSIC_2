@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -137,19 +138,12 @@ public class HomeFragment extends Fragment {
         String jobRole = parts[0];
         String company = parts[1];
 
-        // Create a new instance of CompassFragment
-        CompassFragment compassFragment = new CompassFragment();
+        getActivity().getSharedPreferences("CompassPrefs", getContext().MODE_PRIVATE)
+                .edit()
+                .putString("job_role", jobRole)
+                .putString("company", company)
+                .apply();
 
-        // Create a Bundle to pass data
-        Bundle bundle = new Bundle();
-        bundle.putString("job_role", jobRole);
-        bundle.putString("company", company);
-        compassFragment.setArguments(bundle);
-
-        // Start a fragment transaction to replace the current fragment
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container, compassFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        Log.d("HomeFragment", "Data saved to SharedPreferences: jobRole=" + jobRole + ", company=" + company);
     }
 }

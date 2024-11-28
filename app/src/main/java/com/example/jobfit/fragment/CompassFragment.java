@@ -1,5 +1,6 @@
 package com.example.jobfit.fragment;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.example.jobfit.API.Job;
 import com.example.jobfit.API.UserInput;
 import com.example.jobfit.R;
 import com.example.jobfit.API.RetrofitClient;
+import com.example.jobfit.activity.ResultActivity;
 import com.example.jobfit.db.DBHelper;
 import com.example.jobfit.db.User;
 
@@ -27,7 +29,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CompassFragment extends Fragment {
-    private String cardData;
     private TextView textView;
     private DBHelper dbHelper;
 
@@ -40,16 +41,14 @@ public class CompassFragment extends Fragment {
 
         String email = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE).getString("email", null);
 
-        // Retrieve the data from the arguments
-        String jobRole;
-        String company;
-        if (getArguments() != null) {
-            jobRole = getArguments().getString("job_role");
-            company = getArguments().getString("company");
-        } else {
-            jobRole = null;
-            company = null;
-        }
+        String jobRole = getActivity().getSharedPreferences("CompassPrefs", getContext().MODE_PRIVATE)
+                .getString("job_role", null);
+        String company = getActivity().getSharedPreferences("CompassPrefs", getContext().MODE_PRIVATE)
+                .getString("company", null);
+
+        // Log untuk debugging
+        Log.d("CompassFragment", "Retrieved jobRole: " + jobRole);
+        Log.d("CompassFragment", "Retrieved company: " + company);
 
         // Find the TextView to display the data
         textView = view.findViewById(R.id.cardDetailsText);
@@ -92,15 +91,14 @@ public class CompassFragment extends Fragment {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Job> jobs = response.body();
                     if (!jobs.isEmpty()) {
-                        Job job = jobs.get(0); // Assuming you want the first match
-                        textView.setText("Match: " + job.getMatch_Percentage() + "%");
-
-                        // Log the details
-                        Log.d("LogData", "Company: " + job.getCompany());
-                        Log.d("LogData", "Job Role: " + job.getJob_Role());
-                        Log.d("LogData", "Match Percentage: " + job.getMatch_Percentage());
-                        Log.d("LogData", "Skills: " + userInput.getSkills());
-                        Log.d("LogData", "Experience: " + userInput.getExperience());
+                        Job job = jobs.get(0); // Ambil hasil pertama
+                        Intent intent = new Intent(getContext(), ResultActivity.class);
+                        intent.putExtra("company", job.getCompany());
+                        intent.putExtra("jobRole", job.getJob_Role());
+                        intent.putExtra("matchPercentage", job.getMatch_Percentage());
+                        intent.putExtra("skills", userInput.getSkills());
+                        intent.putExtra("experience", userInput.getExperience());
+                        startActivity(intent);
                     } else {
                         textView.setText("No matches found");
                     }

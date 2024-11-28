@@ -23,8 +23,8 @@
         <!-- Tambahkan ScrollView di sekitar LinearLayout berwarna pink -->
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/company_desc_image">
+            android:layout_height="match_parent">
+<!--            android:layout_below="@id/company_desc_image">-->
 
             <LinearLayout
                 android:id="@+id/container_company_desc"
