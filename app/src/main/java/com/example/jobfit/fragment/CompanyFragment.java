@@ -15,7 +15,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.jobfit.adapter.CompanyFactsAdapter;
 import com.example.jobfit.db.CompanyData;
+import com.example.jobfit.db.CompanyFactsData;
 import com.example.jobfit.db.DBHelper;
 import com.example.jobfit.model.Company;
 import com.example.jobfit.adapter.CompanyAdapter;
@@ -29,6 +31,7 @@ public class CompanyFragment extends Fragment {
     private DBHelper dbHelper;
     private RecyclerView rvCompanyFacts, rv_companyLogo;
     private CompanyAdapter companyAdapter;
+    private CompanyFactsAdapter companyFactsAdapter;
 
     @Nullable
     @Override
@@ -61,10 +64,12 @@ public class CompanyFragment extends Fragment {
             bundle.putParcelable("company", company);
             NavHostFragment.findNavController(CompanyFragment.this).navigate(R.id.action_companyFragment_to_compDescFragment, bundle);
         });
-
-
         rv_companyLogo.setAdapter(companyAdapter);
 
+        rvCompanyFacts = view.findViewById(R.id.rv_companyfacts);
+        rvCompanyFacts.setHasFixedSize(true);
+        companyFactsAdapter = new CompanyFactsAdapter(CompanyFactsData.companyFactsArrayList);
+        rvCompanyFacts.setAdapter(companyFactsAdapter);
 
 
         return view;

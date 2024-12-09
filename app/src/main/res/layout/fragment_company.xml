@@ -69,7 +69,8 @@
                 android:layout_marginBottom="10dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:spanCount="1"
-                tools:listitem="@layout/item_company"/>
+                tools:listitem="@layout/item_company"
+                android:layout_gravity="center_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
