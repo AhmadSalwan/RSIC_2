@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,11 +61,7 @@ public class CompanyFragment extends Fragment {
 
         rv_companyLogo = view.findViewById(R.id.rv_company);
         rv_companyLogo.setHasFixedSize(true);
-        companyAdapter = new CompanyAdapter(CompanyData.companies, company -> {
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("company", company);
-            NavHostFragment.findNavController(CompanyFragment.this).navigate(R.id.action_companyFragment_to_compDescFragment, bundle);
-        });
+        companyAdapter = new CompanyAdapter(CompanyData.companies);
         rv_companyLogo.setAdapter(companyAdapter);
 
         rvCompanyFacts = view.findViewById(R.id.rv_companyfacts);

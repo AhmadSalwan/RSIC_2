@@ -8,19 +8,6 @@
     <fragment
         android:id="@+id/companyFragment"
         android:name="com.example.jobfit.fragment.CompanyFragment"
-        android:label="Company Fragment"
         tools:layout="@layout/fragment_company">
-
-        <!-- Action to navigate from CompanyFragment to CompDescFragment -->
-        <action
-            android:id="@+id/action_companyFragment_to_compDescFragment"
-            app:destination="@id/compDescFragment" />
     </fragment>
-
-    <fragment
-        android:id="@+id/compDescFragment"
-        android:name="com.example.jobfit.fragment.CompDescFragment"
-        android:label="Company Description Fragment"
-        tools:layout="@layout/fragment_comp_desc" />
-
 </navigation>

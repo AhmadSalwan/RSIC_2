@@ -35,6 +35,14 @@ public class CompanyData {
                 Arrays.asList("Digital Technology", "Graduate Programs & Internships"),
                 R.drawable.kantor_lorela
         ));
+        companies1.add(new Company(
+                "Google",
+                "1600 Amphitheatre Parkway, Mountain View, California",
+                "Google adalah sebuah perusahaan teknologi multinasional yang sangat terkenal dan berpengaruh di dunia. Didirikan oleh Larry Page dan Sergey Brin pada tahun 1998, Google awalnya dikenal sebagai mesin pencari web yang paling banyak digunakan di dunia. ",
+                R.drawable.google_logo,
+                Arrays.asList("Marketing Specialist", "Data Analyst"),
+                R.drawable.google_office
+        ));
         return companies1;
     }
 }

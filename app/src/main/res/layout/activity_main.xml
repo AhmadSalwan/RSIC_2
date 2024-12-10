@@ -2,10 +2,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F3F3"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MainActivity"
+    app:navGraph="@navigation/nav_graph"
+    app:defaultNavHost="true" >
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
